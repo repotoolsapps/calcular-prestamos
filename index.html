@@ -430,6 +430,13 @@
         }
 
         html.lang-en [lang="en"] {
+            display: block;
+        }
+
+        /* Inline elements should stay inline/inline-block */
+        html.lang-en span[lang="en"],
+        html.lang-en a[lang="en"],
+        html.lang-en strong[lang="en"] {
             display: inline-block;
         }
 
