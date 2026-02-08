@@ -1,203 +1,342 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="lang-es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Préstamos Pro - Profesional y Fácil</title>
+    <!-- Opción SEO -->
+    <meta name="description" content="La calculadora de préstamos e hipotecas más completa y profesional para Android e iOS.">
     <style>
         :root {
             --primary: #1a73e8;
+            --primary-dark: #1765cc;
             --secondary: #34a853;
             --dark: #202124;
             --light: #f8f9fa;
+            --gray: #5f6368;
+            --white: #ffffff;
         }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
             color: var(--dark);
-            background-color: #fdfdfd;
+            background-color: #ffffff;
             line-height: 1.6;
         }
+
+        /* Language Toggle */
+        .lang-switch {
+            background: #eee;
+            border-radius: 20px;
+            padding: 4px;
+            display: flex;
+            gap: 5px;
+            margin-left: 20px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: var(--primary);
+        }
+
         header {
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
+
         .logo {
             display: flex;
             align-items: center;
             font-weight: 700;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--primary);
+            text-decoration: none;
         }
+
         .logo img {
             width: 36px;
             height: 36px;
             margin-right: 12px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .hero {
             padding: 100px 5%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, #e8f0fe 0%, #ffffff 100%);
+            background: radial-gradient(circle at top right, #e8f0fe, #ffffff);
         }
+
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             margin-bottom: 20px;
-            color: var(--dark);
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
         }
+
         .hero p {
-            font-size: 1.35rem;
-            max-width: 650px;
-            color: #5f6368;
-            margin-bottom: 45px;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
         }
-        .btn {
-            display: inline-block;
-            padding: 18px 45px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 40px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 8px 20px rgba(26, 115, 232, 0.3);
+
+        /* Store Buttons */
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
         }
-        .btn:hover {
+
+        .store-btn img {
+            height: 50px;
+            transition: transform 0.2s;
+        }
+
+        .store-btn:hover img {
             transform: translateY(-3px);
-            background: #1765cc;
-            box-shadow: 0 12px 25px rgba(26, 115, 232, 0.4);
         }
+
         .section-title {
             text-align: center;
-            margin: 80px 0 40px;
-            font-size: 2.2rem;
-            color: var(--dark);
+            font-size: 2.5rem;
+            margin: 100px 0 40px;
         }
-        .screenshots {
-            padding: 40px 5%;
+
+        /* App Mockups */
+        .mockups-container {
             display: flex;
             overflow-x: auto;
-            gap: 25px;
+            gap: 30px;
+            padding: 40px 5%;
             scroll-snap-type: x mandatory;
             scrollbar-width: none;
         }
-        .screenshots::-webkit-scrollbar { display: none; }
-        .screenshots img {
-            height: 550px;
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            scroll-snap-align: center;
-            border: 8px solid #202124;
-            transition: transform 0.3s;
+
+        .mockups-container::-webkit-scrollbar {
+            display: none;
         }
-        .screenshots img:hover { transform: scale(1.02); }
+
+        .mockup {
+            flex: 0 0 auto;
+            width: 280px;
+            border-radius: 35px;
+            border: 10px solid #111;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            scroll-snap-align: center;
+            overflow: hidden;
+            background: #eee;
+        }
+
+        .mockup img {
+            width: 100%;
+            display: block;
+        }
+
         .features {
-            padding: 60px 5% 100px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
+            padding: 100px 5%;
         }
+
         .feature-card {
-            padding: 45px;
-            border-radius: 25px;
-            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            background: var(--white);
             border: 1px solid #f0f0f0;
-            transition: all 0.3s;
+            transition: 0.3s;
         }
+
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-            border-color: #e8f0fe;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+            border-color: var(--primary);
         }
+
         .feature-card h3 {
-            color: var(--primary);
             font-size: 1.6rem;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: var(--primary);
         }
-        .feature-card p { color: #5f6368; font-size: 1.05rem; }
+
         footer {
+            background: #111;
+            color: #ccc;
             padding: 80px 5% 40px;
-            background: #1a1b1e;
-            color: white;
             text-align: center;
         }
-        .footer-links { margin-bottom: 40px; }
+
         .footer-links a {
-            color: #9aa0a6;
-            margin: 0 20px;
+            color: #888;
+            margin: 0 15px;
             text-decoration: none;
-            font-weight: 500;
             transition: color 0.2s;
         }
-        .footer-links a:hover { color: white; }
-        .copyright { color: #5f6368; font-size: 0.95rem; }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .screenshots img { height: 400px; }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .copy {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Multi-lang visibility */
+        [lang="en"] {
+            display: none;
+        }
+
+        html.lang-en [lang="es"] {
+            display: none;
+        }
+
+        html.lang-en [lang="en"] {
+            display: block;
+        }
+
+        html.lang-es [lang="es"] {
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .mockup {
+                width: 240px;
+            }
         }
     </style>
+    <script>
+        function setLang(lang) {
+            document.documentElement.className = 'lang-' + lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            localStorage.setItem('preferred-lang', lang);
+        }
+        // Auto detect or load saved
+        window.onload = () => {
+            const saved = localStorage.getItem('preferred-lang');
+            const browser = navigator.language.startsWith('es') ? 'es' : 'en';
+            setLang(saved || browser);
+        };
+    </script>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="img/icon.png" alt="Icono" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/repotoolsapps/loan-calculator-policy/main/icon.png'">
-            Calculadora Pro
+        <a href="#" class="logo">
+            <img src="img/icon.png" alt="Logo">
+            <span lang="es">Calculadora Pro</span>
+            <span lang="en">Loan Calc Pro</span>
+        </a>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+            <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
         </div>
     </header>
 
     <section class="hero">
-        <h1>Tu dinero bajo control total</h1>
-        <p>La herramienta definitiva para calcular, comparar y gestionar tus préstamos o hipotecas con precisión matemática y elegancia profesional.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.repotools.prestamocalculadora" class="btn">Empezar ahora →</a>
+        <h1 lang="es">Finanzas claras,<br>decisiones inteligentes.</h1>
+        <h1 lang="en">Clear finances,<br>smart decisions.</h1>
+
+        <p lang="es">La calculadora de préstamos definitiva. Amortización, comparación y exportación profesional en la palma de tu mano.</p>
+        <p lang="en">The ultimate loan calculator. Amortization, comparison, and professional export right in the palm of your hand.</p>
+
+        <div class="store-buttons">
+            <!-- Google Play -->
+            <a href="https://play.google.com/store/apps/details?id=com.repotools.prestamocalculadora" class="store-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+            </a>
+            <!-- App Store (Placeholder link if not available yet) -->
+            <a href="#" class="store-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
+            </a>
+        </div>
     </section>
 
-    <h2 class="section-title">Diseño moderno e intuitivo</h2>
-    <div class="screenshots">
-        <img src="img/screen1.png" alt="Captura 1">
-        <img src="img/screen2.png" alt="Captura 2">
-        <img src="img/screen3.png" alt="Captura 3">
-        <img src="img/screen4.png" alt="Captura 4">
+    <h2 class="section-title">
+        <span lang="es">Experiencia Premium</span>
+        <span lang="en">Premium Experience</span>
+    </h2>
+
+    <div class="mockups-container">
+        <div class="mockup"><img src="img/screen1.png" alt="S1"></div>
+        <div class="mockup"><img src="img/screen2.png" alt="S2"></div>
+        <div class="mockup"><img src="img/screen3.png" alt="S3"></div>
+        <div class="mockup"><img src="img/screen4.png" alt="S4"></div>
     </div>
 
     <section class="features">
         <div class="feature-card">
-            <h3>📈 Amortizaciones</h3>
-            <p>Obtén el cuadro de pagos detallado mes a mes. Conoce exactamente cuánto pagas de intereses y cuánto reduces de deuda.</p>
+            <h3 lang="es">📊 Detalle Total</h3>
+            <h3 lang="en">📊 Full Detail</h3>
+            <p lang="es">Visualiza tu tabla de amortización completa. Intereses, capital y seguros desglosados mes a mes.</p>
+            <p lang="en">Visualize your full amortization table. Interests, capital, and insurance broken down month by month.</p>
         </div>
         <div class="feature-card">
-            <h3>⚖️ Comparativas</h3>
-            <p>Carga varias ofertas bancarias y descubre cuál es realmente la más barata. No dejes que las comisiones ocultas te engañen.</p>
+            <h3 lang="es">⚖️ Comparador</h3>
+            <h3 lang="en">⚖️ Comparison</h3>
+            <p lang="es">¿Varios bancos ofreciendo? Compara sus términos y descubre cuál te ahorra más dinero real.</p>
+            <p lang="en">Multiple bank offers? Compare their terms and find out which one really saves you more money.</p>
         </div>
         <div class="feature-card">
-            <h3>📄 Exportación Pro</h3>
-            <p>Exporta tus resultados en PDF o CSV con un formato impecable para compartir con bancos o asesores financieros.</p>
+            <h3 lang="es">📄 Exportación</h3>
+            <h3 lang="en">📄 Professional Export</h3>
+            <p lang="es">Comparte tus cálculos en PDF o CSV con un formato profesional listo para presentar.</p>
+            <p lang="en">Share your calculations in PDF or CSV with a professional format ready for presentation.</p>
         </div>
     </section>
 
     <footer>
         <div class="footer-links">
-            <a href="privacy.html">Privacidad</a>
-            <a href="mailto:repotoolsapps@gmail.com">Soporte</a>
+            <a href="privacy.html">
+                <span lang="es">Privacidad</span>
+                <span lang="en">Privacy</span>
+            </a>
+            <a href="mailto:repotoolsapps@gmail.com">Soporte / Support</a>
         </div>
-        <div class="copyright">© 2026 Repotools. Diseñado para tu libertad financiera.</div>
+        <div class="copy">
+            © 2026 Repotools. 
+            <span lang="es">Calculadora de Préstamos Pro es una marca registrada.</span>
+            <span lang="en">Loan Calculator Pro is a registered trademark.</span>
+        </div>
     </footer>
 </body>
 </html>
