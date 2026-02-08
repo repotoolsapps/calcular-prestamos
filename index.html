@@ -422,30 +422,29 @@
 
         /* Multi-lang visibility */
         [lang="en"] {
-            display: none;
+            display: none !important;
         }
 
         html.lang-en [lang="es"] {
-            display: none;
+            display: none !important;
         }
 
         html.lang-en [lang="en"] {
-            display: block;
+            display: block !important;
         }
 
-        /* Inline elements should stay inline/inline-block */
+        /* Inline specific overrides to preserve text flow */
         html.lang-en span[lang="en"],
         html.lang-en a[lang="en"],
-        html.lang-en strong[lang="en"] {
-            display: inline-block;
+        html.lang-en strong[lang="en"],
+        html.lang-en b[lang="en"],
+        html.lang-en i[lang="en"] {
+            display: inline-block !important;
         }
 
-        /* Ensure table elements don't collapse to block or inline-block */
+        /* Table elements must stay as table-cell */
         html.lang-en th[lang="en"],
-        html.lang-en td[lang="en"] {
-            display: table-cell !important;
-        }
-
+        html.lang-en td[lang="en"],
         html.lang-es th[lang="es"],
         html.lang-es td[lang="es"] {
             display: table-cell !important;
@@ -504,7 +503,7 @@
 
         <p lang="es">Descubre la verdadera cuota de tu hipoteca o préstamo en segundos. La herramienta profesional que
             los bancos no quieren que uses.</p>
-        <p lang="en">Discover the true cost of your mortgage or loan in seconds. The professional tool banks dont want
+        <p lang="en">Discover the true cost of your mortgage or loan in seconds. The professional tool banks don't want
             you to use.</p>
 
         <div class="store-badges">
