@@ -115,17 +115,19 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.8rem, 8vw, 4.5rem);
+            font-size: clamp(2.8rem, 8vw, 4.2rem);
             margin-bottom: 25px;
-            letter-spacing: -2px;
-            line-height: 1.05;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            font-weight: 800;
         }
 
         .hero p {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            max-width: 800px;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            max-width: 750px;
             margin: 0 auto 50px;
             color: var(--gray);
+            font-weight: 400;
         }
 
         .store-badges {
@@ -136,7 +138,7 @@
         }
 
         .store-badges img {
-            height: 55px;
+            height: 48px;
             transition: transform 0.2s;
         }
 
@@ -313,47 +315,109 @@
             color: var(--primary);
         }
 
-        /* --- Footer --- */
+        /* --- Footer Redesign --- */
         footer {
-            background: #111;
-            color: #888;
-            padding: 100px 8% 50px;
-            text-align: center;
+            background: #0a0a0b;
+            color: #ececec;
+            padding: 80px 8% 40px;
+            text-align: left;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .footer-logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 30px;
-            display: block;
-            text-decoration: none;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 60px;
         }
 
-        .footer-nav {
-            margin-bottom: 50px;
-        }
-
-        .footer-nav a {
-            color: #888;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 500;
-        }
-
-        .footer-nav a:hover {
-            color: #fff;
-        }
-
-        .social-links {
-            margin-bottom: 40px;
+        .footer-brand .footer-logo {
             font-size: 1.5rem;
+            font-weight: 900;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: #a1a1a6;
+            font-size: 0.95rem;
+            max-width: 320px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #a1a1a6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-social {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        .social-link:hover {
+            transform: translateX(5px);
+        }
+
+        .social-link span {
+            color: #a1a1a6;
+            font-weight: 400;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .copy {
-            border-top: 1px solid #222;
-            padding-top: 30px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            color: #6e6e73;
+            max-width: 600px;
         }
 
         /* Multi-lang visibility */
@@ -428,8 +492,8 @@
     </header>
 
     <section class="hero">
-        <h1 lang="es">📊 Paga menos,<br>decide mejor.</h1>
-        <h1 lang="en">📊 Pay less,<br>decide better.</h1>
+        <h1 lang="es">Paga menos,<br>decide mejor.</h1>
+        <h1 lang="en">Pay less,<br>decide better.</h1>
 
         <p lang="es">Descubre la verdadera cuota de tu hipoteca o préstamo en segundos. La herramienta profesional que
             los bancos no quieren que uses.</p>
@@ -446,10 +510,9 @@
         </div>
     </section>
 
-    <!-- App Showcase -->
     <div class="section-header">
-        <h2 lang="es">✨ Potencia en tu bolsillo</h2>
-        <h2 lang="en">✨ Power in your pocket</h2>
+        <h2 lang="es">Potencia en tu bolsillo</h2>
+        <h2 lang="en">Power in your pocket</h2>
         <p lang="es">Interfaz premium diseñada para ofrecerte la máxima claridad financiera.</p>
         <p lang="en">Premium interface designed to offer you maximum financial clarity.</p>
     </div>
@@ -465,8 +528,8 @@
     <section class="steps">
         <div class="step-card">
             <div class="step-num">01</div>
-            <h3 lang="es">⚙️ Configura</h3>
-            <h3 lang="en">⚙️ Configure</h3>
+            <h3 lang="es">Configura</h3>
+            <h3 lang="en">Configure</h3>
             <p lang="es">Introduce el importe, el interés y el plazo. Soporta cuotas fijas, variables y amortizaciones
                 complejas.</p>
             <p lang="en">Enter the amount, interest, and term. Supports fixed, variable, and complex amortization
@@ -474,16 +537,16 @@
         </div>
         <div class="step-card">
             <div class="step-num">02</div>
-            <h3 lang="es">📈 Analiza</h3>
-            <h3 lang="en">📈 Analyze</h3>
+            <h3 lang="es">Analiza</h3>
+            <h3 lang="en">Analyze</h3>
             <p lang="es">Visualiza gráficos interactivos y tablas mes a mes. Conoce exactamente cuánto pagas de
                 intereses.</p>
             <p lang="en">View interactive charts and month-by-month tables. Know exactly how much interest you pay.</p>
         </div>
         <div class="step-card">
             <div class="step-num">03</div>
-            <h3 lang="es">📄 Exporta</h3>
-            <h3 lang="en">📄 Export</h3>
+            <h3 lang="es">Exporta</h3>
+            <h3 lang="en">Export</h3>
             <p lang="es">Genera informes profesionales en PDF o CSV para presentar en tu banco o compartir con tu
                 pareja.</p>
             <p lang="en">Generate professional PDF or CSV reports to present at your bank or share with your partner.
@@ -494,8 +557,8 @@
     <!-- Comparison -->
     <section class="plan-comparison">
         <div class="section-header">
-            <h2 lang="es">🏆 Elige tu nivel</h2>
-            <h2 lang="en">🏆 Choose your level</h2>
+            <h2 lang="es">Elige tu nivel</h2>
+            <h2 lang="en">Choose your level</h2>
         </div>
         <div class="table-wrapper">
             <table>
@@ -520,8 +583,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <span lang="es">⚖️ Comparar Préstamos</span>
-                            <span lang="en">⚖️ Multi-Loan Comparison</span>
+                            <span lang="es">Comparar Préstamos</span>
+                            <span lang="en">Multi-Loan Comparison</span>
                         </td>
                         <td>
                             <span lang="es">Limitado (2)</span>
@@ -539,16 +602,16 @@
                     </tr>
                     <tr>
                         <td>
-                            <span lang="es">💰 Control de Gastos</span>
-                            <span lang="en">💰 Expense Tracking</span>
+                            <span lang="es">Control de Gastos</span>
+                            <span lang="en">Expense Tracking</span>
                         </td>
                         <td class="check">✓</td>
                         <td class="check">✓</td>
                     </tr>
                     <tr>
                         <td>
-                            <span lang="es">🔔 Recordatorios de Pago</span>
-                            <span lang="en">🔔 Payment Reminders</span>
+                            <span lang="es">Recordatorios de Pago</span>
+                            <span lang="en">Payment Reminders</span>
                         </td>
                         <td class="cross">✕</td>
                         <td class="check">✓</td>
@@ -599,21 +662,21 @@
         <div
             style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 0 8% 80px;">
             <div class="step-card">
-                <div class="step-num">👥</div>
+                <div class="step-num">Users</div>
                 <h3 lang="es">Usuarios</h3>
                 <h3 lang="en">Individuals</h3>
                 <p lang="es">Planifica tus finanzas personales y ahorra miles en intereses comparando préstamos.</p>
                 <p lang="en">Plan your personal finances and save thousands in interest by comparing loans.</p>
             </div>
             <div class="step-card">
-                <div class="step-num">🏛️</div>
+                <div class="step-num">Bank</div>
                 <h3 lang="es">Banqueros</h3>
                 <h3 lang="en">Bankers</h3>
                 <p lang="es">Realiza simulaciones rápidas para tus clientes con precisión bancaria certificada.</p>
                 <p lang="en">Perform quick simulations for your clients with certified bank precision.</p>
             </div>
             <div class="step-card">
-                <div class="step-num">🤝</div>
+                <div class="step-num">Pro</div>
                 <h3 lang="es">Prestamistas</h3>
                 <h3 lang="en">Lenders</h3>
                 <p lang="es">Gestiona tus préstamos, mantén el control de gastos y nunca olvides un cobro.</p>
@@ -630,26 +693,26 @@
         <p lang="en">Total privacy and security. We never take your financial data off your device.</p>
         <div class="trust-grid">
             <div class="trust-item">
-                <h4 lang="es">🔒 100% Privado</h4>
-                <h4 lang="en">🔒 100% Private</h4>
+                <h4 lang="es">100% Privado</h4>
+                <h4 lang="en">100% Private</h4>
                 <p lang="es">Sin registros obligatorios.</p>
                 <p lang="en">No mandatory registration.</p>
             </div>
             <div class="trust-item">
-                <h4 lang="es">☁️ Sin Nube</h4>
-                <h4 lang="en">☁️ No Cloud</h4>
+                <h4 lang="es">Sin Nube</h4>
+                <h4 lang="en">No Cloud</h4>
                 <p lang="es">Todo se queda en tu móvil.</p>
                 <p lang="en">Everything stays on your phone.</p>
             </div>
             <div class="trust-item">
-                <h4 lang="es">🎯 Precisión</h4>
-                <h4 lang="en">🎯 Precision</h4>
+                <h4 lang="es">Precisión</h4>
+                <h4 lang="en">Precision</h4>
                 <p lang="es">Fórmulas financieras certificadas.</p>
                 <p lang="en">Certified financial formulas.</p>
             </div>
             <div class="trust-item">
-                <h4 lang="es">🌐 Multilenguaje</h4>
-                <h4 lang="en">🌐 Multilanguage</h4>
+                <h4 lang="es">Multilenguaje</h4>
+                <h4 lang="en">Multilanguage</h4>
                 <p lang="es">Disponible en +6 idiomas (ES, EN, DE, FR, IT, PT).</p>
                 <p lang="en">Available in 6+ languages (ES, EN, DE, FR, IT, PT).</p>
             </div>
@@ -680,21 +743,57 @@
     </section>
 
     <footer>
-        <a href="#" class="footer-logo">Loan Calc Pro</a>
-        <nav class="footer-nav">
-            <a href="privacy.html"><span lang="es">Privacidad</span><span lang="en">Privacy</span></a>
-            <a href="mailto:repotoolsapps@gmail.com"><span lang="es">Soporte</span><span lang="en">Support</span></a>
-        </nav>
-        <div class="social-links">
-            <a href="https://www.instagram.com/ilozanodev/" target="_blank"
-                style="color: #e4405f; text-decoration: none; font-size: 1.8rem;">
-                📸 @ilozanodev
-            </a>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">
+                    <img src="img/icon.png" alt="Icon"
+                        style="width: 32px; height: 32px; margin-right: 10px; border-radius: 6px;">
+                    <span>Loan Calc Pro</span>
+                </a>
+                <p lang="es">La herramienta definitiva para tomar decisiones financieras inteligentes y ahorrar en
+                    intereses.</p>
+                <p lang="en">The ultimate tool for making smart financial decisions and saving on interest.</p>
+                <div class="store-badges" style="justify-content: flex-start; gap: 10px;">
+                    <a href="https://play.google.com/store/apps/details?id=com.repotools.prestamocalculadora">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                            alt="Android" style="height: 35px;">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 lang="es">Navegación</h4>
+                <h4 lang="en">Navigation</h4>
+                <ul>
+                    <li><a href="#"><span lang="es">Inicio</span><span lang="en">Home</span></a></li>
+                    <li><a href="privacy.html"><span lang="es">Privacidad</span><span lang="en">Privacy</span></a></li>
+                    <li><a href="mailto:repotoolsapps@gmail.com"><span lang="es">Soporte</span><span
+                                lang="en">Support</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 lang="es">Comunidad</h4>
+                <h4 lang="en">Community</h4>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/ilozanodev/" target="_blank" class="social-link">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.335 3.608 1.31.975.975 1.248 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.335 2.633-1.31 3.608-.975.975-2.242 1.248-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.335-3.608-1.31-.975-.975-1.248-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.335-2.633 1.31-3.608.975-.975 2.242-1.248 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                        Instagram
+                        <span style="font-size: 0.8rem;">@ilozanodev</span>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="copy">
-            &copy; 2026 Repotools.
-            <span lang="es">Calculadora de Préstamos Pro no es una entidad financiera ni ofrece préstamos.</span>
-            <span lang="en">Loan Calculator Pro is not a financial entity nor does it offer loans.</span>
+
+        <div class="footer-bottom">
+            <div class="copy">
+                &copy; 2026 Repotools.
+                <span lang="es">Calculadora de Préstamos Pro no es una entidad financiera ni ofrece préstamos.</span>
+                <span lang="en">Loan Calculator Pro is not a financial entity nor does it offer loans.</span>
+            </div>
         </div>
     </footer>
 
