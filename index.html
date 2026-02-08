@@ -258,7 +258,7 @@
         }
 
         .check {
-            color: var(--secondary);
+            color: #1a73e8;
             font-weight: bold;
         }
 
@@ -355,7 +355,7 @@
             font-size: 0.9rem;
         }
 
-        /* --- Multilang Toggle System --- */
+        /* Multi-lang visibility */
         [lang="en"] {
             display: none;
         }
@@ -365,7 +365,18 @@
         }
 
         html.lang-en [lang="en"] {
-            display: block;
+            display: inline-block;
+        }
+
+        /* Ensure table elements don't collapse to block or inline-block */
+        html.lang-en th[lang="en"],
+        html.lang-en td[lang="en"] {
+            display: table-cell !important;
+        }
+
+        html.lang-es th[lang="es"],
+        html.lang-es td[lang="es"] {
+            display: table-cell !important;
         }
 
         @media (max-width: 768px) {
@@ -400,7 +411,6 @@
     };
 </script>
 </head>
-
 
 <body>
 
@@ -490,48 +500,54 @@
                         <th lang="en">Feature</th>
                         <th lang="es">Gratis</th>
                         <th lang="en">Free</th>
-                        <th lang="es">PRO (Un solo pago)</th>
+                        <th lang="es">PRO (Un pago)</th>
                         <th lang="en">PRO (One-time)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td lang="es">Cálculos Ilimitados</td>
-                        <td lang="en">Unlimited Calculations</td>
-                        <td class="check">✓</td>
-                        <td class="check">✓</td>
-                        <td class="check">✓</td>
-                        <td class="check">✓</td>
-                    </tr>
-                    <tr>
-                        <td lang="es">Tablas de Amortización</td>
-                        <td lang="en">Amortization Tables</td>
-                        <td class="check">✓</td>
-                        <td class="check">✓</td>
+                        <td>
+                            <span lang="es">Cálculos Ilimitados</span>
+                            <span lang="en">Unlimited Calculations</span>
+                        </td>
                         <td class="check">✓</td>
                         <td class="check">✓</td>
                     </tr>
                     <tr>
-                        <td lang="es">Exportar a PDF / CSV</td>
-                        <td lang="en">Export to PDF / CSV</td>
-                        <td lang="es">Limitado</td>
-                        <td lang="en">Limited</td>
+                        <td>
+                            <span lang="es">Tablas de Amortización</span>
+                            <span lang="en">Amortization Tables</span>
+                        </td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span lang="es">Exportar a PDF / CSV</span>
+                            <span lang="en">Export to PDF / CSV</span>
+                        </td>
+                        <td>
+                            <span lang="es">Limitado</span>
+                            <span lang="en">Limited</span>
+                        </td>
                         <td class="check">✓ Full</td>
-                        <td class="check">✓ Full</td>
                     </tr>
                     <tr>
-                        <td lang="es">Publicidad</td>
-                        <td lang="en">Ads</td>
-                        <td lang="es">Sí</td>
-                        <td lang="en">Yes</td>
-                        <td class="cross">✕ No</td>
+                        <td>
+                            <span lang="es">Publicidad</span>
+                            <span lang="en">Ads</span>
+                        </td>
+                        <td>
+                            <span lang="es">Sí</span>
+                            <span lang="en">Yes</span>
+                        </td>
                         <td class="cross">✕ No</td>
                     </tr>
                     <tr>
-                        <td lang="es">Acceso de por vida</td>
-                        <td lang="en">Lifetime Access</td>
-                        <td class="check">✓</td>
-                        <td class="check">✓</td>
+                        <td>
+                            <span lang="es">Acceso de por vida</span>
+                            <span lang="en">Lifetime Access</span>
+                        </td>
                         <td class="check">✓</td>
                         <td class="check">✓</td>
                     </tr>
